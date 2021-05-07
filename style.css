@@ -1,6 +1,54 @@
-.first_part {
-  background-image: url("./img/1.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
+* {
+  font-family: "Poppins";
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(15, 15, 15, 0.705);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.774);
+}
+
+body {
+  background: linear-gradient(270deg, #eb4945, #da5d59, #ebdddd);
+  background-size: 600% 600%;
+
+  -webkit-animation: coloranim 14s ease infinite;
+  -moz-animation: coloranim 14s ease infinite;
+  animation: coloranim 14s ease infinite;
+}
+
+@-webkit-keyframes coloranim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes coloranim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes coloranim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
