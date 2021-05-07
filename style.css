@@ -10,8 +10,15 @@
   box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.774);
 }
 
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+}
+
 body {
-  background: linear-gradient(270deg, #eb4945, #da5d59, #ebdddd);
+  background: linear-gradient(270deg, #ebdddd, #da5d59, #eb4945);
   background-size: 600% 600%;
 
   -webkit-animation: coloranim 14s ease infinite;
