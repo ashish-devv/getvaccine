@@ -1,5 +1,43 @@
 const app = angular.module("app", []);
 app.controller("contro", ($scope, $http) => {
+  $scope.show = false;
+  function senduserdetail() {
+    $http({
+      url: "http://localhost/getDetail",
+      method: "GET",
+      params: {
+        name: $scope.name,
+        email: $scope.email,
+        age: $scope.age,
+        pincode: $scope.pincode,
+        state: $scope.stno,
+        district: $scope.dist,
+      },
+    }).then(
+      (response) => {
+        //console.log(response);
+
+        if (response.data.code == 1) {
+          $scope.show = true;
+          $scope.message = 1;
+        } else if (response.data.code == 2) {
+          $scope.show = true;
+          $scope.message = 2;
+        } else if (response.data.code == 3) {
+          $scope.show = true;
+          $scope.message = 3;
+        }
+      },
+      (error) => {
+        console.log(error);
+        $scope.show = true;
+        $scope.message = 4;
+      }
+    );
+  }
+
+  $scope.senduserdetail = senduserdetail;
+
   $http.get("https://cdn-api.co-vin.in/api/v2/admin/location/states").then(
     (response) => {
       //console.log(response.data);

@@ -25,6 +25,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,800;1,100;1,200&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
     <script src="./script.js"></script>
     <title>Vaccine-India</title>
   </head>
@@ -33,19 +36,43 @@
     <!-- modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog text-center">
-        <div class="modal-content">
+        <div class="modal-content" data-aos="flip-left" data-aos-duration="1500">
           <div class="modal-header">
             <h5 class="modal-title text-center" id="staticBackdropLabel">Remind me When Slot is Free❗</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <img src="./img/129-wear-mask (1).png" alt="image" class="img-fluid" style="height:200px;">
-            <h1 class="lead">Feature Coming Soon 🤗</h1>
-            <span class="text-muted"> In A few days 👋</span>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+            <img src="./img/129-wear-mask (1).png" alt="image" class="img-fluid" style="height:150px;">
+            <!-- <h1 class="lead">Feature Coming Soon 🤗</h1>
+            <span class="text-muted"> In A few days 👋</span> -->
+            <div class="alert {{message==1?'alert-success':'alert-danger'}} alert-dismissible fade show" role="alert" ng-if="show">
+              {{message==1?'Successfully Added😁': message==2?'Already Email is In Use':message==3?'Other Server Error Occured !':message==4 ?'‼‼Reminder Server Went Down‼‼ Try Another Time.':"💀Unknown error 💀"  }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <p class="h6">Submit it For Getting Remainder When a Slot Is Vacant near you</p>
+            <form ng-submit="senduserdetail()">
+            <input type="text" class="form-control border-success mt-2" placeholder="Enter Your name" autofocus required ng-model="name">
+            <input type="email" class="form-control border-success mt-2" placeholder="Enter Your Email@" required ng-model="email">
+            <select name="age" id="" class="form-select border-success mt-2" required ng-model="age">
+              <option selected disabled> Enter Your Age Range</option>
+              <option value="18">18-44</option>
+              <option value="45">45+</option>
+            </select>
+            <input type="number" class="form-control border-success mt-2" placeholder="Enter Your Pincode" required ng-model="pincode">
+            <label for="st">State:</label>
+            <select name="state" id="st" class="form-select border-success mt-2" required ng-change="district_change(stno)" ng-model="stno">
+              <option selected disabled> Enter Your State</option>
+              <option value="{{st.state_id}}" ng-repeat="st in states">{{st.state_name}}</option>
+            </select>
+            <label for="dis">District</label>
+            <select name="district" id="dis" class="form-select border-success mt-2" required ng-model="dist">
+              <option selected disabled> Enter Your District</option>
+              <option value="{{dis.district_id}}" ng-repeat="dis in districts" >{{dis.district_name}}</option>
+            </select>
+            <button class="btn btn-primary btn-lg mt-1" type="submit">Submit ✈</button>
+            </form>
+
+
           </div>
         </div>
       </div>
@@ -60,7 +87,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6  text-center">
-          <div class="card text-center m-4 border-dark ">
+          <div class="card text-center m-4 border-dark " data-aos="fade-right" data-aos-duration="2000">
                 <div class="card-header bg-danger text-white">Search</div>
                 <div class="card-body">
                     <nav>
@@ -114,7 +141,7 @@
 
 
                 <div class="accordion accordion-flush text-center" id="accordionFlushExample">
-                    <div class="accordion-item" ng-repeat="d in data">
+                    <div class="accordion-item" ng-repeat="d in data" data-aos="flip-left" data-aos-duration="1500">
                         <h2 class="accordion-header" id="{{d.center_id}}-head">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colap-{{d.center_id}}" aria-expanded="false" aria-controls="{{d.center_id}}-head">
                             <!-- content of heading in accordin -->
@@ -187,13 +214,17 @@
 
 
     <!-- Optional JavaScript; choose one of the two! -->
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
       crossorigin="anonymous"
     ></script>
+    
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
