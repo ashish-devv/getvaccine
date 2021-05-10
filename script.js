@@ -3,7 +3,7 @@ app.controller("contro", ($scope, $http) => {
   $scope.show = false;
   function senduserdetail() {
     $http({
-      url: "http://localhost/getDetail",
+      url: "https://getvaccine-server.herokuapp.com/getDetail",
       method: "GET",
       params: {
         name: $scope.name,
