@@ -1,5 +1,6 @@
 const app = angular.module("app", []);
 app.controller("contro", ($scope, $http) => {
+  $scope.showemptymsg = true;
   $scope.show = false;
   function senduserdetail() {
     $http({
@@ -81,6 +82,12 @@ app.controller("contro", ($scope, $http) => {
         (response) => {
           console.log(response.data);
           $scope.data = response.data.centers;
+          if (Object.keys(response.data.centers).length === 0) {
+            console.log("empty");
+            $scope.showemptymsg = false;
+          } else {
+            $scope.showemptymsg = true;
+          }
         },
         (error) => {
           console.log(error);
@@ -107,6 +114,12 @@ app.controller("contro", ($scope, $http) => {
         (response) => {
           console.log(response.data);
           $scope.data = response.data.centers;
+          if (Object.keys(response.data.centers).length === 0) {
+            console.log("empty");
+            $scope.showemptymsg = false;
+          } else {
+            $scope.showemptymsg = true;
+          }
         },
         (error) => {
           console.log(error);
