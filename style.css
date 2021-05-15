@@ -7,7 +7,7 @@
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.774);
+  box-shadow: 0 8px 16px 0 rgba(107, 209, 12, 0.767);
 }
 
 .footer {
@@ -24,7 +24,7 @@
   background-size: cover;
 } */
 
-body {
+.gradanim {
   background: linear-gradient(270deg, #ebdddd, #da5d59, #eb4945);
   background-size: 600% 600%;
 
